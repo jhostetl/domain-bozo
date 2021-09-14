@@ -1,0 +1,13 @@
+
+.header{
+    background: #1B476A;
+    margin-bottom:30px;
+    padding-left:10px;
+}
+.infoBox {
+    padding:10px;
+    margin-bottom:10px;
+}
+body a {
+    text-decoration: none;
+}
