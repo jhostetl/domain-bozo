@@ -4,10 +4,18 @@
     margin-bottom:30px;
     padding-left:10px;
 }
+
+body a {
+    text-decoration: none;
+}
+
 .infoBox {
     padding:10px;
     margin-bottom:10px;
 }
-body a {
-    text-decoration: none;
+
+#javascriptLink{
+	font-weight:700;
+	font-size:18px;
+	padding-left:10px;
 }
