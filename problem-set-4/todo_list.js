@@ -3,7 +3,13 @@
 function addTask(description, dueTime){
 
     let task = document.createElement('li');
-    dueTime = new Date(dueTime).toLocaleString();
+
+    if (dueTime !== false){
+        dueTime = new Date(dueTime).toLocaleString();        
+    }else{
+        dueTime = "";
+    }
+
     task.innerHTML = description + "<span class='due'>" + dueTime + "</span><button class='btn btn-sm btn-outline-danger done' type='button'>Done</button>";
 
     let task_list_ul = document.getElementById('task_list');
@@ -48,7 +54,7 @@ function dateAndTimeToTimestamp(dateInputElement, timeInputElement) {
     const dueDate = dateInputElement.valueAsNumber; // Returns the timestamp at midnight for the given date
     const dueTime = timeInputElement.valueAsNumber; // Returns the number of milliseconds from midnight to the time
 
-    if(dueDate && dueTime) { // The user specified both a due date & due time
+    if(dueDate && dueTime && (dueDate + dueTime !== 1633098600000) && !isNaN(dueDate) && !isNaN(dueTime)) { // The user specified both a due date & due time
         //Add the timezone offset to account for the fact that timestamps are specified by UTC
         const timezoneOffset =  (new Date()).getTimezoneOffset() * 60 * 1000;
         return dueDate + dueTime + timezoneOffset;
