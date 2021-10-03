@@ -10,10 +10,37 @@ function addTask(description, dueTime){
         dueTime = "";
     }
 
-    task.innerHTML = description + "<span class='due'>" + dueTime + "</span><button class='btn btn-sm btn-outline-danger done' type='button'>Done</button>";
 
-    let task_list_ul = document.getElementById('task_list');
-    task_list_ul.prepend(task);
+    //creates new list element
+    const newListElement = document.createElement('li');
+    newListElement.textContent = description;
+    
+    //creates span element in list item
+    const spanElement = document.createElement('span');
+    spanElement.textContent = dueTime;
+    spanElement.classList.add("due");
+    newListElement.append(spanElement);
+
+
+    //adds done button to list item
+    const doneButtonElement = document.createElement('button');
+    doneButtonElement.textContent = 'Done';
+    doneButtonElement.classList.add("btn");
+    doneButtonElement.classList.add("btn-sm");
+    doneButtonElement.classList.add("btn-outline-danger");
+    doneButtonElement.classList.add("done");
+    newListElement.append(doneButtonElement); // add the button onto the end of the new list element
+ 
+
+    let taskListUl = document.getElementById('task_list');
+    taskListUl.prepend(newListElement);
+
+
+
+
+
+    //let task_list_ul = document.getElementById('task_list');
+    //task_list_ul.prepend(task);
     document.getElementById('task_description_input').value = "";
 }
 
