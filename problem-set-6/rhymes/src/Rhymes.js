@@ -1,9 +1,4 @@
-
-import {useState, useRef, memo, useCallback} from 'react';
-
-
-
-
+import {useState, useRef} from 'react';
 
 function Rhymes () {
     const inputEl = useRef(null);
