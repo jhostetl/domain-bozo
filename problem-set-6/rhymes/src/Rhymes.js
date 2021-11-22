@@ -21,8 +21,8 @@ function Rhymes () {
     const elements = [];
     for(let i = 0; i<rhymeWords.length; i++) {
         const item = rhymeWords[i];
-        const elem = <RhymeItem onSave={() => saveWord(i)} key={i} description={item} />;
-        elements.push(elem)
+        const elem = <RhymeItem onSave={() => saveWord(i)} key={i} description={item} />;      
+        elements.push(elem);
     }
 
     function addRhyme() {
@@ -36,10 +36,11 @@ function Rhymes () {
             .then((result) => {
                 if (result.length > 0){              
                     const grouped_results = groupBy(result, "numSyllables");
-                    for (const property in grouped_results) {                        
+                    for (const property in grouped_results) {                       
+                        word_list.push(property + " Syllable Words: ");    
                         for (const a in grouped_results[property]) {
                             word_list.push(grouped_results[property][a]["word"]);
-                        }                   
+                        }                
                     }
                     setWordList(word_list);
                     setDescription("Words that rhyme with " + search_word);
@@ -84,7 +85,11 @@ function Rhymes () {
     }
 
     function RhymeItem(props) {
-        return <li>{props.description} <button className = "btn btn-save btn-outline-secondary" onClick={props.onSave}>Save</button></li>
+        if (props.description.includes(" Syllable Words: ")){
+            return <h6>{props.description}</h6>
+        }else{
+            return <li>{props.description} <button className = "btn btn-save btn-outline-secondary" onClick={props.onSave}>Save</button></li>
+        }
     }
 
     // or:
