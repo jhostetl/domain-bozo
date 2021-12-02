@@ -168,7 +168,10 @@ input[type=range]:focus::-ms-fill-upper {
 
 #mobileButton {
   display:none;
+  width:100%; 
+  margin-top:15px;
 }
+
 #desktopButton {
   display:inline;
 } 
