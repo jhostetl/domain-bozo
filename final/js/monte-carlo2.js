@@ -92,7 +92,7 @@ function runSimulation(){
 		return ending_value_sort
 	});
 
-	let median_bankrupt = current_age + results_array[simulations/2].length - 1;
+	let median_bankrupt = results_array[simulations/2][results_array[simulations/2].length - 1];
 	if (median_bankrupt == 110){
 		median_bankrupt += "+";
 	}
