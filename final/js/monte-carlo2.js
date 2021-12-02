@@ -97,10 +97,8 @@ function runSimulation(){
 		median_bankrupt += "+";
 	}
 
-	document.getElementById('summary').style.display="";
-	document.getElementById('simulationData').style.display="";
-	document.getElementById('summary').innerHTML = "Simulation was run " + simulations + " times with a median bankrupt age of " + median_bankrupt;
-	document.getElementById('summary').innerHTML += "<br>" + Math.round(successful_simulations/simulations * 10000)/100 + "% of scenarios were successful past age 110";
+	document.getElementById('summary1').textContent = "Simulation was run " + simulations + " times with a median bankrupt age of " + median_bankrupt;
+	document.getElementById('summary2').textContent = Math.round(successful_simulations/simulations * 10000)/100 + "% of scenarios were successful past age 110";
 
 	googleChart(current_age, retirement_age, simulations, results_array);
 	$('html, body').animate({

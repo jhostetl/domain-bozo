@@ -200,19 +200,4 @@ footer {
   .form-control {
     font-size:18px;
   }
-
-  #mainJumbotron {
-    background:white;
-    padding:0;
-  }  
-
-  h3 {
-    font-size:12px;
-  }
-  .btn-custom {
-    background:#1da1f2;
-  }
-  .form-control {
-    font-size:18px;
-  }
 } 
