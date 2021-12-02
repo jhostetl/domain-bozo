@@ -92,15 +92,15 @@ function runSimulation(){
 		return ending_value_sort
 	});
 
-	let median_bankrupt = current_age + results_array[simulations-1].length - 1;
-	if (median_bankrupt === 111){
+	let median_bankrupt = current_age + results_array[simulations/2].length - 1;
+	if (median_bankrupt == 110){
 		median_bankrupt += "+";
 	}
 
 	document.getElementById('summary').style.display="";
 	document.getElementById('simulationData').style.display="";
 	document.getElementById('summary').innerHTML = "Simulation was run " + simulations + " times with a median bankrupt age of " + median_bankrupt;
-	document.getElementById('summary').innerHTML += "<br>" + Math.round(successful_simulations/simulations * 10000)/100 + "% of scenarios were successful past age 111";
+	document.getElementById('summary').innerHTML += "<br>" + Math.round(successful_simulations/simulations * 10000)/100 + "% of scenarios were successful past age 110";
 
 	googleChart(current_age, retirement_age, simulations, results_array);
 	$('html, body').animate({
