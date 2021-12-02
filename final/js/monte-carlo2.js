@@ -1,5 +1,3 @@
-
-
 // does the simulation
 function runSimulation(){
 
@@ -94,21 +92,21 @@ function runSimulation(){
 		return ending_value_sort
 	});
 
-	let median_bankrupt = current_age + results_array[simulations/2].length - 1;
-	if (median_bankrupt == 110){
+	let median_bankrupt = current_age + results_array[simulations-1].length - 1;
+	if (median_bankrupt === 111){
 		median_bankrupt += "+";
 	}
 
-	document.getElementById('summary').innerHTML="";
 	document.getElementById('summary').style.display="";
 	document.getElementById('simulationData').style.display="";
 	document.getElementById('summary').innerHTML = "Simulation was run " + simulations + " times with a median bankrupt age of " + median_bankrupt;
-	document.getElementById('summary').innerHTML += "<br>" + Math.round(successful_simulations/simulations * 10000)/100 + "% of scenarios were successful past age 110";
-	googleChart(current_age, retirement_age, simulations, results_array);
+	document.getElementById('summary').innerHTML += "<br>" + Math.round(successful_simulations/simulations * 10000)/100 + "% of scenarios were successful past age 111";
 
+	googleChart(current_age, retirement_age, simulations, results_array);
 	$('html, body').animate({
         scrollTop: $("#simulationData").offset().top
-    }, 800);
+    }, 80);
+
 }
 
 // draws the line graphs by percentiles
@@ -127,44 +125,33 @@ function googleChart(current_age, retirement_age, simulations, results_array){
 
 		// sets the chart data from the results array
 		for(i = 0; i <= 100 - current_age; i++){
-			console.log(i, results_array[simulations*.1][i]);
-		  	data.addRows([
-			[
-			i + current_age, 
-			results_array[simulations*.1][i], 
-			results_array[simulations*.25][i], 
-			results_array[simulations*.5][i], 
-			results_array[simulations*.75][i],
-			results_array[simulations*.9][i],  
-			],
-		  ]); 
+		  	data.addRows([ [i + current_age, Math.round(results_array[simulations*.1][i]), Math.round(results_array[simulations*.25][i]), Math.round(results_array[simulations*.5][i]), Math.round(results_array[simulations*.75][i]), Math.round(results_array[simulations*.9][i]) ] ]); 
 		}
 
 		var linearOptions = {
-		title: 'Scenarios by Percentile',
-		   'height': 500,
-		   'chartArea': {'height': '80%',     
-		   		backgroundColor: {stroke: '#ddd', strokeWidth: 3
-			}},
-		hAxis: {
-			title: 'Age',
-		    viewWindowMode:'explicit',
-		    viewWindow: {
-		      max:100,
-		      min:current_age
-		    },
+			title: 'Scenarios by Percentile',
+			   'height': 500,
+			   'chartArea': {'height': '80%',     
+			   		backgroundColor: {stroke: '#ddd', strokeWidth: 3
+				}},
+			hAxis: {
+				title: 'Age',
+			    viewWindowMode:'explicit',
+			    viewWindow: {
+			      max:100,
+			      min:current_age
+			    },
 
-		},        
-		vAxis: {
-			format: '$#,###',
-		    viewWindowMode:'explicit',
-		    viewWindow: {
-		      //max:,
-		      min:0
-		    }
-		},
+			},        
+			vAxis: {
+				format: '$#,###',
+			    viewWindowMode:'explicit',
+			    viewWindow: {
+			      //max:,
+			      min:0
+			    }
+			},
 		};
-
 
       	var linearChart = new google.visualization.LineChart(document.getElementById('linechart_material'));
        	linearChart.draw(data, linearOptions);
