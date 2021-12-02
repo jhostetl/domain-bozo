@@ -125,18 +125,6 @@ function googleChart(current_age, retirement_age, simulations, results_array){
 		data.addColumn('number', '75th Percentile');
 		data.addColumn('number', '90th Percentile');
 
-
-		 //  	data.addRows([
-			// [
-			// current_age, 
-			// results_array[simulations*.1], 
-			// results_array[simulations*.25], 
-			// results_array[simulations*.5], 
-			// results_array[simulations*.75],
-			// results_array[simulations*.9],  
-			// ],
-		 //  ]); 
-
 		// sets the chart data from the results array
 		for(i = 0; i <= 100 - current_age; i++){
 			console.log(i, results_array[simulations*.1][i]);
