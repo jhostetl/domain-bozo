@@ -1,12 +1,22 @@
 // does the simulation
 function runSimulation(){
 
+	// sets variable to see how long it took to run
+	var startTime = performance.now();
 	// gets all the user variables
 	let successful_simulations = 0;
 	const simulations = 5000;
 	const results_array = [];
 	const current_age = +document.getElementById('currentAge').value.replace(/\,/g,'');
+	if ((currentAge) > 100 || currentAge < 1 ){
+		alert("Please enter a current age between 1 and 100");
+		return;
+	}
 	const retirement_age = +document.getElementById('retirementAge').value.replace(/\,/g,'');
+	if ((retirementAge) > 100 || retirementAge < 1 ){
+		alert("Please enter a retirement age between 1 and 100");
+		return;
+	}
 	const stock_market_percentage = +document.getElementById('stockMarketPercentage').value.replace(/\,/g,'').replace(/\%/g,'')/100;
 	const bonds_percentage = +document.getElementById('bondsPercentage').value.replace(/\,/g,'').replace(/\%/g,'')/100;
 	const cash_percentage = +document.getElementById('cashPercentage').value.replace(/\,/g,'').replace(/\%/g,'')/100;
@@ -25,7 +35,6 @@ function runSimulation(){
 		let annual_withdrawals = +document.getElementById('annualWithdrawals').value.replace(/\,/g,'').replace(/\$/g,'');
 		let money_total = current_savings;
 		let bankrupt_age = 110;
-
 		const money_total_by_year = [];
 
 		// adds the savings until retirement
@@ -47,7 +56,6 @@ function runSimulation(){
 				money_total -= crash_amount;
 			}
 			money_total_by_year.push(money_total);
-		
 		}
 
 		// adds the savings until retirement
@@ -55,10 +63,9 @@ function runSimulation(){
 			let random_sp_year = sp_historical[Math.floor(Math.random() * sp_historical.length)]/100;
 			let random_bond_year = bonds_historical[Math.floor(Math.random() * bonds_historical.length)]/100;
 			let random_cash_year = cash_historical[Math.floor(Math.random() * cash_historical.length)]/100;			
-			let random_inflation_year = inflation_historical[Math.floor(Math.random() * inflation_historical.length)];		
-
+			let random_inflation_year = inflation_historical[Math.floor(Math.random() * inflation_historical.length)];					
 			let yearly_return = (stock_market_percentage * random_sp_year + bonds_percentage * random_bond_year + cash_percentage * random_cash_year);
-	 
+
 			annual_withdrawals *= random_inflation_year;
 			money_total = money_total * (1 + yearly_return) - annual_withdrawals;
 
@@ -105,6 +112,9 @@ function runSimulation(){
         scrollTop: $("#simulationData").offset().top
     }, 80);
 
+    // this sees how long it took
+	var endTime = performance.now();
+	console.log(`Took ${endTime - startTime} milliseconds to run`)
 }
 
 // draws the line graphs by percentiles
@@ -155,3 +165,6 @@ function googleChart(current_age, retirement_age, simulations, results_array){
        	linearChart.draw(data, linearOptions);
     }
 }
+
+
+

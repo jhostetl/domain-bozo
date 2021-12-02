@@ -19,6 +19,8 @@ checkIE = function(){
 
 calculate = function(){
 
+	// sets variable to see how long it took to run
+	var startTime = performance.now();
 
 	if (document.getElementById('expectedTable')){
 		document.getElementById('expectedTable').style.display = "none";
@@ -312,6 +314,9 @@ var frequencyCount = 0;
         scrollTop: $("#simulationData").offset().top
     }, 800);
 
+    // this sees how long it took
+	var endTime = performance.now();
+	console.log(`Took ${endTime - startTime} milliseconds to run`)
 };
 
 function charts(){
