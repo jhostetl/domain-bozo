@@ -8,12 +8,25 @@ body{
   color:#555;
 }
 
-#mainJumbotron{
-  background:white;
+.navbar{
+  border-bottom:1px solid #eee;
 }
 
-#mainCalculator {
-  border-radius:7px;
+#mainJumbotron{
+  background:white; margin-bottom:0; margin-top:20px; padding-top:0;
+}
+
+
+label {
+  margin-bottom:0;
+}
+
+.calc-row {
+  border:1px solid #eee; 
+}
+
+.calc-left {
+  border-right:1px solid #eee;
 }
 
 .resultHeader {
@@ -32,6 +45,14 @@ body{
 
 a:hover {
   text-decoration: none;
+}
+
+.form-calc{
+  margin-top:10px;
+}
+
+.input-group{
+  width:100%;
 }
 
 input[type=range] {
@@ -136,15 +157,15 @@ input[type=range]:focus::-ms-fill-upper {
   line-height: 18px;
   color: white;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 2px;
   text-align: center;
   position: relative;
+  text-decoration: none;
 }
 
 .question:hover{
   color:white;
 }
-
 .popover {
   
 }
