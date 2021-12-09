@@ -3,47 +3,32 @@
 <html lang="en">
 	<head>
 	    <meta charset="utf-8">  
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+		<link rel="icon" type="image/png" href="images/logo.png">
 		<title>Retirement Calculator - Monte Carlo Simulation RetirementSimulation.com</title>
-		<style>
-			label {margin-bottom:0;}
-			.calc-row {border:1px solid #eee; }
-			.calc-left {border-right:1px solid #eee;}
-
-			@media (max-width: 767px) {	
-				.calc-row {border:0;}
-				.calc-left {border-right:0}
-			}
-		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" style = "border-bottom:1px solid #eee;">
-		  <a class="navbar-brand" href="/" style = "color:#555; font-size:15px; font-weight:600;">
-		    <table>
-		      <tr>       
-		        <td>
-		          <div style = "margin:0; padding:0;"><span style = "font-size:20px">R</span>etirement
-		          <span style = "font-size:20px">S</span>imulation</div>
-		        </td>
-		      </tr>
-		    </table>      
-		  </a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		</nav>
-
-		<div id = "mainJumbotron" class="jumbotron"  style = "margin-bottom:0; margin-top:20px; padding-top:0;"> 
+		<nav class="navbar navbar-light bg-light">
+		  	<div class="container-fluid">
+				<a class="navbar-brand" href="/">
+					<table>
+					  	<tr>
+					  		<td><img src = "images/logo.png"/></td>       
+					    	<td>					    		
+					      		<div style = "margin:0; padding-left:5px; color:#555;"><span style = "font-weight:600; font-size:22px">R</span>etirement
+					      		<span style = "font-weight:600; font-size:22px">S</span>imulation</div>
+					    	</td>
+					  	</tr>
+					</table>      
+				</a>
+		  	</div>
+		</nav>		
+		<div id = "mainJumbotron"> 
 			<div id = "mainCalculator" class="container" style = "padding-bottom:10px;">
 				<h3 style = "text-align:center;">Monte Carlo Retirement Calculator</h3> 
-			    <div class="row calc-row" style = "margin-top:10px; padding-bottom:10px;"> 
+			    <div class="row calc-row"> 
 			        <div class="col-md-6 calc-left" style = "padding:25px; padding-top:15px;">
 						<div style = "text-align:center;">       
 							<h5 style = "color:#555;">
@@ -56,13 +41,13 @@
 						<div class = "row">
 							<div class = "col-md-6" style = "margin-top:10px;">
 								<label>Current Age</label>
-								<div class="input-group" style = "width:100%;">						
+								<div class="input-group">						
 									<input value = "30" type="text" maxlength="3" class="form-control" id = "currentAge">
 								</div>
 							</div>
 							<div class = "col-md-6" style = "margin-top:10px;">		
 								<label>Retirement Age</label>
-								<div class="input-group" style = "width:100%;">						
+								<div class="input-group">						
 									<input value = "67" type="text" maxlength="3" class="form-control" id = "retirementAge">
 								</div>
 							</div>
@@ -70,36 +55,36 @@
 						<div class = "row">
 							<div class = "col-md-6" style = "margin-top:10px;">
 								<label>Current Savings</label>
-								<div class="input-group" style = "width:100%;">	
+								<div class="input-group">	
 							        <div class="input-group-prepend">
 							        	<div class="input-group-text">$</div>
 							        </div>												
-									<input value = "27,000" type="text" class="form-control" id = "investment">
+									<input value = "27,000" type="text" class="form-control" id = "currentSavings">
 								</div>
 							</div>
 							<div class = "col-md-6" style = "margin-top:10px;">		
 								<label>Annual Deposits</label>
-								<div class="input-group" style = "width:100%;">						
+								<div class="input-group">						
 									<div class="input-group-prepend">
 							        	<div class="input-group-text">$</div>
 							        </div>	
-									<input value = "4,800" type="text" class="form-control" id = "annualAdditions">
+									<input value = "4,800" type="text" class="form-control" id = "annualDeposits">
 								</div>
 							</div>
 						</div>
 						<div class = "row">
 							<div class = "col-md-6" style = "margin-top:10px;">
 								<label>Annual Withdrawals</label>
-								<div class="input-group" style = "width:100%;">	
+								<div class="input-group">	
 							        <div class="input-group-prepend">
 							        	<div class="input-group-text">$</div>
 							        </div>												
-									<input value = "32,000" type="text" class="form-control" id = "deductions">
+									<input value = "32,000" type="text" class="form-control" id = "annualWithdrawals">
 								</div>
 							</div>
 							<div class = "col-md-6" style = "margin-top:10px;">		
 								<label>Stock market crash</label>
-									<div class="input-group" style = "width:100%;">
+									<div class="input-group">
 								  		<select id = "crashFactor" onchange="crashFactorSelector()" class="form-control" >  
 											<option value="0">none</option>   
 											<option value="20">20%</option> 
@@ -112,8 +97,8 @@
 											<option value="90">90%</option> 
 										</select>
 									</div>
-								<div class="form-calc" style = "margin-top:10px; display:none" id = "crashFactorAge2">
-									<div class="input-group" style = "width:100%;" id = "crashFactorAge">
+								<div class="form-calc" style = "display:none" id = "crashFactorAge2">
+									<div class="input-group" id = "crashFactorAge">
 								        <div class="input-group-prepend">
 								        	<div class="input-group-text">Crash at age</div>
 								        </div>	
@@ -122,7 +107,7 @@
 								</div>
 							</div>	
 						</div>																	
-						<input id="desktopButton" onclick="calculate();" type = "button" value = "Calculate" class = "btn btn-success" style = "width:100%; margin-top:15px;"/>			
+						<input id="desktopButton" onclick="runSimulation();" type = "button" value = "Run Simulation" class = "btn btn-success" style = "width:100%; margin-top:15px;"/>			
 			        </div>
 			        <div class="col-md-6"  style = "padding:25px; padding-top:15px; ">	
 						<div style = "text-align:center;">       
@@ -136,27 +121,27 @@
 							<div class = "col-md-12">
 								<div class = "row">
 									<div class = "col-md-4">	
-										<label style = "margin-top:10px;">In Stocks</label>						
+										<label>In Stocks</label>						
 										<div class="input-group">										  
-										 	<input class = "form-control" type="text" value="50" id="stockmarket" maxlength="3" onblur = "percentageStock(); drawPieChart(); " >
+										 	<input class = "form-control" type="text" value="50" id="stockMarketPercentage" maxlength="3" onblur = "percentageStocks(); drawBarGraphic();">
 									        <div class="input-group-append">
 									        	<div class="input-group-text" style = "opacity:.7; background:#3366cc; border:1px solid #3366cc; color:white;">%</div>
 									        </div>	
 										</div>
 									</div>
 									<div class = "col-md-4">		
-										<label style = "margin-top:10px;">In Bonds</label>						
+										<label>In Bonds</label>						
 										<div class="input-group">										  
-										 	<input class = "form-control" type="text" value="30" id="bonds" maxlength="3" onblur = "percentageBond(); drawPieChart();">
+										 	<input class = "form-control" type="text" value="30" id="bondsPercentage" maxlength="3" onblur = "percentageBonds(); drawBarGraphic();">
 											<div class="input-group-append">
 									        	<div class="input-group-text" style = "opacity:.7; background:#DC3912; border:1px solid #DC3912; color:white;">%</div>
 									        </div>	
 										</div>
 									</div>
 									<div class = "col-md-4">	
-										<label style = "margin-top:10px;">In Cash</label>						
+										<label>In Cash</label>						
 										<div class="input-group">										  
-										 	<input class = "form-control" type="text" value="20" id="cash" maxlength="3" onblur = "percentageCash(); drawPieChart();">
+										 	<input class = "form-control" type="text" value="20" id="cashPercentage" maxlength="3" onblur = "percentageCash(); drawBarGraphic();">
 									        <div class="input-group-append">
 									        	<div class="input-group-text" style = "opacity:.7; background:#FF9900; border:1px solid #FF9900; color:white;">%</div>
 									        </div>	
@@ -166,17 +151,17 @@
 							</div>
 						</div>
 						<div class = "row">					
-							<div class = "col-md-12" style = "margin-top:10px;">																							
-								<div id="piechart" style = "height:20px; opacity:.7;"></div>
+							<div class = "col-md-12" style = "margin-top:10px;">						
+								<div id="barGraphic" style = "height:20px; opacity:.7;"></div>
 							</div>	
 						</div>	
 						<hr style = "margin-bottom:0;">
 						<div class = "row">
 							<div class = "col-md-6">		
-								<div class="form-calc" style = "margin-top:10px;">
+								<div class="form-calc">
 									<label>Modify Stock Returns</label>
-									<div class="input-group" style = "width:100%;">	
-									 	<input style = "border-right:1px solid #ddd;" class = "form-control" type=range min="-15" max="15" value="0" id="fader1" step="1" oninput="stockSlider(value)">																										
+									<div class="input-group">	
+									 	<input style = "border-right:1px solid #ddd;" class = "form-control" type=range min="-15" max="15" value="0" id="fader1" step="1" oninput="stockSlider(value)">	
 								        <div class="input-group-append">
 								        	<output for="fader1" id="stockSlider" class = "form-control" >0%</output>
 								        </div>									
@@ -184,9 +169,9 @@
 								</div>
 							</div>
 							<div class = "col-md-6">	
-								<div class="form-calc" style = "margin-top:10px;">
+								<div class="form-calc">
 									<label>Modify Bond Returns</label>
-									<div class="input-group" style = "width:100%;">
+									<div class="input-group">
 									 	<input style = "border-right:1px solid #ddd;" style = "border-right:0;"  class = "form-control"  type=range min="-15" max="15" value="0" id="fader1" step="1" oninput="bondSlider(value)">																										
 								        <div class="input-group-append">
 								        	<output for="fader2" id="bondSlider" class = "form-control" >0%</output>
@@ -197,9 +182,9 @@
 						</div>	
 						<div class = "row">
 							<div class = "col-md-6">		
-								<div class="form-calc" style = "margin-top:10px;">
+								<div class="form-calc">
 									<label>Modify Cash Returns</label>
-									<div class="input-group" style = "width:100%;">	
+									<div class="input-group">	
 									 	<input style = "border-right:0; " class = "form-control" type=range min="-15" max="15" value="0" id="fader1" step="1" oninput="cashSlider(value)">								
 										<div class="input-group-append">
 								        	<output for="fader3" id="cashSlider" class = "form-control">0%</output>
@@ -208,10 +193,10 @@
 								</div>
 							</div>
 							<div class = "col-md-6">	
-								<div class="form-calc" style = "margin-top:10px;">
+								<div class="form-calc">
 									<label>Modify Inflation Returns</label>
-									<div class="input-group" style = "width:100%;">
-									 	 	<input style = "border-right:0;" class = "form-control" type=range min="-15" max="15" value="0" id="fader1" step="1" oninput="inflationSlider(value)">							
+									<div class="input-group">
+									 	<input style = "border-right:0;" class = "form-control" type=range min="-15" max="15" value="0" id="fader1" step="1" oninput="inflationSlider(value)">	
 										<div class="input-group-append">
 								        	<output for="fader4" id="inflationSlider" class = "form-control">0%</output>
 								        </div>									
@@ -219,14 +204,16 @@
 								</div>	
 							</div>
 						</div>														
-						<input id="mobileButton" onclick="calculate()" type = "button" value = "Calculate" class = "btn btn-success" style = "width:100%; margin-top:15px;"/>	
+						<input id="mobileButton" onclick="runSimulation()" type = "button" value = "Run Simulation" class = "btn btn-success"/>	
 			        </div>
 			    </div>
 			</div>
 		</div>  
-		<div id = "simulationData" class = "bg-light" style = "width:100%; text-align:center; display:none; padding-top:10px; padding-bottom:10px; border-top:1px solid #eee; border-bottom:1px solid #eee;">
-			<div  id = "summary" style = "display:none; "></div>
+		<div id = "simulationData">
+			<div id = "summary1"></div>
+			<div id = "summary2"></div>
 		</div>  
+
 		<div class="container" style = "padding-bottom:10px;">
 			<div id="linechart_material"></div>	
 		</div>	
@@ -235,183 +222,7 @@
 			    <div class="col-md-12" style = "background:white;border-radius:5px; padding:20px; padding-left:40px; padding-right:40px;">
 			    	<center>Percentage of Scenarios That Still Have Money at Each Age <span><a href="#" data-trigger="hover" data-toggle="popover" data-content="This shows the percentage of simulations that still have a positive amount of money at each age. 100% success means that all simulations had money at that age. 0% success means that all simulations went bankrupt by that age." class="question">?</a></span></center>
 			    	<div class = "table-responsive" style = "margin-top:8px;">
-						<table class = "table table-sm">		
-							<tr>
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white; ">Age</td>
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white;">Success</td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white; ">Age</td>
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white; padding-right:15px;" >Success</td>
-								<td style = "border:0;"></td>	
-
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white; ">Age</td>
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white; padding-right:15px;" >Success</td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white; ">Age</td>
-								<td style = "border:1px solid #ccc; background:#1da1f2; color:white; padding-right:15px;">Success</td>													
-							</tr>				
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "1label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "1year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "11label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "11year"></td>
-								<td style = "border:0;"></td>		
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "21label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "21year"></td>
-								<td style = "border:0;"></td>	
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "35label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "35year"></td>													
-							</tr>	
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "2label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "2year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "12label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "12year"></td>
-								<td style = "border:0;"></td>	
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "22label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "22year"></td>
-								<td style = "border:0;"></td>	
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "40label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "40year"></td>															
-							</tr>	
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "3label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "3year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "13label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "13year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "23label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "23year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "45label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "45year"></td>									
-							</tr>	
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "4label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "4year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "14label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "14year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "24label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "24year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "50label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "50year"></td>										
-							</tr>	
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "5label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "5year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "15label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "15year"></td>
-								<td style = "border:0;"></td>					
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "25label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "25year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "55label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "55year"></td>		
-							</tr>		
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "6label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "6year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "16label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "16year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "26label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "26year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "60label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "60year"></td>										
-							</tr>
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "7label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "7year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "17label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "17year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "27label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "27year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "70label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "70year"></td>															
-							</tr>
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "8label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "8year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "18label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "18year"></td>
-								<td></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "28label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "28year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "80label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "80year"></td>															
-							</tr>
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "9label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "9year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "19label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "19year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "29label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "29year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "90label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "90year"></td>														
-							</tr>
-							<tr>
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "10label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "10year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "20label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "20year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "30label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "30year"></td>
-								<td style = "border:0;"></td>
-
-								<td style = "border:1px solid #ccc; background:#F7F7F7; " id = "100label"></td>
-								<td style = "border:1px solid #ccc; padding-right:15px;" style = "border:1px solid #ccc;" id = "100year"></td>															
-							</tr>																																																																																																					
+						<table class = "table table-sm">																																
 						</table> 
 					</div>	           	
 			    </div>
@@ -427,25 +238,15 @@
 			</div>	
 		</div>
 
-
 		<script type="text/javascript" src="js/other.js"></script>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 		<script type="text/javascript" src="js/historical-returns.js"></script>
+		<script type="text/javascript" src="js/monte-carlo-visuals.js"></script>  
 		<script type="text/javascript" src="js/monte-carlo.js"></script>  
-		<script>
-		$(document).ready(function(){
-		    $('[data-toggle="popover"]').popover();   
-		});
-		</script>
-		<script>
-		window.onload = function() {
-			checkIE();
-			charts();
-			drawPieChart();
-		}
-		</script>
-
-
 	</body>
 </html>
 
