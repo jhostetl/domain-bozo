@@ -1,5 +1,5 @@
  
-array to save scenarios. not completed yet
+// array to save scenarios. not completed yet
 const saved_scenarios = [];
 
 // does the simulation
